@@ -1,0 +1,13 @@
+name = "zoosa2-paid"
+main = "src/index.js"
+compatibility_date = "2026-05-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://hubhub5.github.io"
+
+
+# npx wrangler d1 create zoosa2-paid 로 만든 id
+[[d1_databases]]
+binding = "DB"
+database_name = "zoosa2-paid"
+database_id = "REPLACE_D1"

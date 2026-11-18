@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/src/styles/tokens.css">
+</head><body style="margin:0;background:#888">
+<canvas id="c" width="1200" height="630"></canvas>
+<script type="module">
+// OG 이미지 만들기: 개발 서버에서 /scripts/og.html 을 열면 public/og.png 저장
+await Promise.all([document.fonts.load('800 60px NanumSquareNeo'), document.fonts.load('400 20px NanumSquareNeo')]);
+const img = new Image(); img.src = '/px/scene-shiba-red.gif'; await img.decode();
+const c = document.getElementById('c'), x = c.getContext('2d');
+x.fillStyle = '#efe7d8'; x.fillRect(0, 0, 1200, 630);
+x.strokeStyle = '#26211c'; x.lineWidth = 2; x.strokeRect(28, 28, 1144, 574);
+x.imageSmoothingEnabled = false;
+x.fillStyle = '#f7f2e7'; x.fillRect(620, 150, 520, 330);
+x.drawImage(img, 640, 210, 480, 240);
+x.fillStyle = '#8f8475'; x.font = '400 22px NanumSquareNeo'; x.fillText("보호자사주 · GUARDIAN'S SAJU", 72, 98);
+x.beginPath(); x.moveTo(72, 120); x.lineTo(1128, 120); x.stroke();
+x.fillStyle = '#26211c'; x.font = '800 66px NanumSquareNeo'; x.letterSpacing = '-4.6px';
+['얘는 왜 하필', '그때 나한테', '왔을까'].forEach((t, i) => x.fillText(t, 72, 230 + i * 82));
+x.fillStyle = '#c2412b'; x.fillRect(72, 420, 110, 8);
+x.fillStyle = '#574e44'; x.font = '400 26px NanumSquareNeo'; x.letterSpacing = '-1.8px';
+x.fillText('보호자의 10년 대운 · 입양한 해의 운 · 생각 버릇 10가지', 72, 500);
+x.fillStyle = '#8f8475'; x.font = '400 22px NanumSquareNeo'; x.letterSpacing = '0px'; x.fillText('01–03 FREE · 04–09 ₩9,900', 72, 556);
+const blob = await new Promise((r) => c.toBlob(r, 'image/png'));
+await fetch('/__save-og', { method: 'POST', body: blob });
+document.title = 'saved';
+</script></body></html>

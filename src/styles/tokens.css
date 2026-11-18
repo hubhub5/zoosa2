@@ -1,0 +1,49 @@
+@font-face { font-family: 'NanumSquareNeo'; font-weight: 300; font-display: swap; src: url(https://cdn.jsdelivr.net/gh/eunchurn/NanumSquareNeo@0.0.6/woff2/NanumSquareNeoTTF-aLt.woff2) format('woff2'); }
+@font-face { font-family: 'NanumSquareNeo'; font-weight: 400; font-display: swap; src: url(https://cdn.jsdelivr.net/gh/eunchurn/NanumSquareNeo@0.0.6/woff2/NanumSquareNeoTTF-bRg.woff2) format('woff2'); }
+@font-face { font-family: 'NanumSquareNeo'; font-weight: 700; font-display: swap; src: url(https://cdn.jsdelivr.net/gh/eunchurn/NanumSquareNeo@0.0.6/woff2/NanumSquareNeoTTF-cBd.woff2) format('woff2'); }
+@font-face { font-family: 'NanumSquareNeo'; font-weight: 800; font-display: swap; src: url(https://cdn.jsdelivr.net/gh/eunchurn/NanumSquareNeo@0.0.6/woff2/NanumSquareNeoTTF-dEb.woff2) format('woff2'); }
+
+:root {
+  --bg: #efe7d8;
+  --paper: #f7f2e7;
+  --ink: #26211c;
+  --ink-2: #574e44;
+  --mute: #8f8475;
+  --line: #ddd2bf;
+  --line-2: #c9bca5;
+  --tint: #e6dcc8;
+  --accent: #c2412b;
+  --accent-ink: #9e3020;
+  --on-accent: #fbf6ec;
+
+  --el-wood: #2a9a62;
+  --el-fire: #a8322a;
+  --el-earth: #dcab3c;
+  --el-metal: #8a6ccf;
+  --el-water: #1f4f96;
+
+  --sans: 'NanumSquareNeo', 'NanumSquare', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+  --mono: 'NanumSquareNeo', 'NanumSquare', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+  --serif: 'NanumSquareNeo', 'Noto Serif KR', 'Nanum Myeongjo', serif;
+  --track: -0.07em;
+
+  --col: 720px;
+  --wide: 1180px;
+  --gutter: 16px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #171411; --paper: #1f1b17; --ink: #efe7d8; --ink-2: #c3b8a6; --mute: #8a7f70;
+    --line: #2e2923; --line-2: #403930; --tint: #27221d; --accent: #e0644a; --accent-ink: #ef8a70; --on-accent: #171411;
+    --el-wood: #3fa268; --el-fire: #c03a30; --el-earth: #b08626; --el-metal: #8452c4; --el-water: #4f96e0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #171411; --paper: #1f1b17; --ink: #efe7d8; --ink-2: #c3b8a6; --mute: #8a7f70;
+  --line: #2e2923; --line-2: #403930; --tint: #27221d; --accent: #e0644a; --accent-ink: #ef8a70; --on-accent: #171411;
+  --el-wood: #3fa268; --el-fire: #c03a30; --el-earth: #b08626; --el-metal: #8452c4; --el-water: #4f96e0;
+  color-scheme: dark;
+}

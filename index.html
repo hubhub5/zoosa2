@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!--HEAD-->
+<title>보호자사주 · 얘는 왜 하필 그때 나한테 왔을까</title>
+<meta name="description" content="강아지 사주 말고 내 사주. 우리 강아지가 내 인생 몇 번째 대운에 왔는지, 그해 나한테 무슨 일이 있었는지 봐요.">
+<meta property="og:title" content="보호자사주 · 얘는 왜 하필 그때 나한테 왔을까">
+<meta property="og:description" content="내 대운 그래프 위에 우리 강아지 온 날 찍어 보기">
+<meta property="og:image" content="%SITE%og.png?v=20261118">
+</head>
+<body>
+<!--TOP-->
+<main class="wrap page">
+  <div class="land">
+    <div class="land-l">
+      <div class="kicker mono"><span>대운 리포트</span><span>v1.0 · 2026.11</span><span>계산 기준 · 진태양시 −30분</span></div>
+      <h1 class="land-t">얘는 왜 하필<br>그때 나한테 왔을까</h1>
+      <p class="land-p">강아지 사주 아니고 <b>내 사주</b>예요. 10년마다 바뀌는 대운 위에 우리 강아지 데려온 날을 찍어 보면, 그해 나한테 무슨 일이 있었는지가 보여요. 내 생각 버릇까지 같이.</p>
+      <div class="land-stat mono">
+        <span><b>10</b>년 단위 대운</span><span><b>7</b>가지 입양 계기</span><span><b>10</b>가지 생각 버릇</span><span><b>10</b>년 운세 표</span>
+      </div>
+    </div>
+    <div class="land-r">
+      <img class="px" src="./px/scene-mix-cream.gif" width="440" height="220" alt="한복 입은 보호자랑 강아지 픽셀 그림" id="land-art">
+    </div>
+  </div>
+
+  <section class="sec" id="form">
+    <header class="sec-h"><span class="mono">입력</span><h2>리포트 받기</h2><small>2분이면 끝 · 입력한 건 내 브라우저에만 남아요</small></header>
+    <form class="fm" novalidate>
+      <fieldset>
+        <legend>나</legend>
+        <label class="f"><span>이름이나 별명 <i>안 써도 됨</i></span><input name="owner" maxlength="12" placeholder="리포트에 이 이름으로 나와요" autocomplete="nickname"></label>
+        <div class="f"><span>생년월일</span>
+          <div class="ymd"><input name="by" inputmode="numeric" maxlength="4" placeholder="1994" aria-label="출생 연도"><input name="bm" inputmode="numeric" maxlength="2" placeholder="03" aria-label="출생 월"><input name="bd" inputmode="numeric" maxlength="2" placeholder="15" aria-label="출생 일"></div>
+        </div>
+        <div class="f"><span>달력</span>
+          <div class="seg"><label><input type="radio" name="cal" value="s" checked><span>양력</span></label><label><input type="radio" name="cal" value="l"><span>음력</span></label><label><input type="radio" name="cal" value="L"><span>음력 윤달</span></label></div>
+        </div>
+        <div class="f"><span>태어난 시간</span>
+          <div class="hm"><select name="bh" aria-label="시"><option value="">모름</option></select><input name="bmin" inputmode="numeric" maxlength="2" placeholder="분 (0–59)" aria-label="분"></div>
+          <small data-sishi>몰라도 돼요. 시간 칸만 빼고 6글자로 봐요.</small>
+        </div>
+        <div class="f"><span>성별</span>
+          <div class="seg"><label><input type="radio" name="g" value="f" checked><span>여</span></label><label><input type="radio" name="g" value="m"><span>남</span></label></div>
+          <small>대운 방향(순행, 역행) 정할 때 필요해서 물어봐요.</small>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>우리 강아지</legend>
+        <label class="f"><span>이름</span><input name="dog" maxlength="10" placeholder="율이" required></label>
+        <div class="f"><span>어떤 날짜로 볼까요?</span>
+          <div class="seg"><label><input type="radio" name="dt" value="m" checked><span>우리 집 온 날</span></label><label><input type="radio" name="dt" value="b"><span>생일</span></label></div>
+          <small>만난 날을 모르거나, 구조한 날을 생일로 정했다면 생일로 골라 주세요.</small>
+        </div>
+        <div class="f"><span data-dlabel>우리 집 온 날</span>
+          <div class="ymd"><input name="ay" inputmode="numeric" maxlength="4" placeholder="2021" aria-label="연도"><input name="am" inputmode="numeric" maxlength="2" placeholder="05" aria-label="월"><input name="ad" inputmode="numeric" maxlength="2" placeholder="일(모르면 비움)" aria-label="일"></div>
+          <small>날짜까지 알면 그날 일진이 우리 강아지 기둥이 돼요. 기억 안 나면 월까지만.</small>
+        </div>
+        <div class="f two-sel">
+          <label><span>견종</span><input name="breed" list="breed-list" maxlength="24" placeholder="치면 추천이 떠요" autocomplete="off"></label>
+          <label><span>털색</span><input name="color" list="color-list" maxlength="16" placeholder="예: 검정, 크림" autocomplete="off"></label>
+          <datalist id="breed-list"></datalist><datalist id="color-list"></datalist>
+          <small class="sel-note">목록에 없으면 그냥 쓰면 돼요. 쓴 그대로 리포트에 나와요.</small>
+        </div>
+        <label class="f"><span>어떻게 왔어요? <i>안 써도 됨</i></span>
+          <select name="route"><option value="">안 고를래요</option><option value="shop">분양 (펫숍 · 브리더)</option><option value="shelter">보호소 · 임보 입양</option><option value="rescue">구조</option><option value="family">가족 · 지인에게서</option><option value="etc">기타</option></select>
+        </label>
+        <label class="f chk"><input type="checkbox" name="sick"><span>처음 왔을 때 아팠거나 상태가 안 좋았어요</span></label>
+      </fieldset>
+      <p class="fm-err mono" role="alert"></p>
+      <button class="btn fm-go" type="submit">무료로 앞부분 보기</button>
+      <p class="mono mute fine">01–03장은 무료. 더 보고 싶으면 04–09장 9,900원. <a class="wl" href="./sample.html">결제하면 뭐가 나오는지 예시 보기</a></p>
+    </form>
+  </section>
+
+  <section class="sec" id="toc">
+    <header class="sec-h"><span class="mono">구성</span><h2>뭐가 나오냐면</h2><small><a class="wl" href="./sample.html">예시 리포트 통째로 보기</a></small></header>
+    <div class="scroll-x"><table class="tbl toc-t">
+      <thead><tr><th>장</th><th>내용</th><th>형태</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="mono">01</td><td><b>내 사주 여덟 글자</b><br><span class="mute">나는 어떤 사람인지, 오행 뭐가 많고 뭐가 없는지</span></td><td>사주표 · 막대</td><td class="mono">무료</td></tr>
+        <tr><td class="mono">02</td><td><b>10년씩 끊어 본 인생</b><br><span class="mute">0살부터 90살까지 운 그래프. 우리 강아지 온 날 표시</span></td><td>선 그래프 · 표</td><td class="mono">무료</td></tr>
+        <tr><td class="mono">03</td><td><b>우리 강아지가 온 때</b><br><span class="mute">그해 나한테 무슨 일이 있었는지. 7가지 계기 중 어디였는지</span></td><td>체크리스트</td><td class="mono">무료</td></tr>
+        <tr><td class="mono">04</td><td><b>강아지가 오고 나서 바뀐 것</b><br><span class="mute">우리 강아지가 내 사주에서 뭘 채워 줬는지</span></td><td>전후 막대</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">05</td><td><b>내 생각 버릇 10가지</b><br><span class="mute">흑백논리, 과잉일반화, 개인화 같은 거. 상위 3개는 내 속마음이랑 실제 상황까지</span></td><td>분위 막대 · 카드</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">06</td><td><b>지금 10년, 다음 10년</b></td><td>카드</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">07</td><td><b>우리 강아지랑 같이 갈 10년</b><br><span class="mute">해마다 운, 조심할 달, 좋은 달, 강아지랑 관련된 한 줄</span></td><td>표</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">08</td><td><b>주고받는 것</b></td><td>단어 목록</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">09</td><td><b>인스타용 카드</b></td><td>이미지</td><td class="mono acc">유료</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="sec">
+    <header class="sec-h"><span class="mono">계기</span><h2>강아지 데려오는 타이밍, 거의 이 중 하나</h2><small>03장에서 내 건 뭔지 나와요</small></header>
+    <div class="routes">
+      <div><span class="mono">01</span><b>이사 · 독립</b><p>이사, 첫 자취, "여기 반려동물 된대"</p></div>
+      <div><span class="mono">02</span><b>일 · 돈</b><p>취업, 이직, 재택. 병원비 계산이 딱 선 때</p></div>
+      <div><span class="mono">03</span><b>관계</b><p>이별, 가족 독립. 집이 너무 조용해진 때</p></div>
+      <div><span class="mono">04</span><b>멘탈</b><p>아침에 일어날 이유가 필요했던 때</p></div>
+      <div><span class="mono">05</span><b>리셋</b><p>오래 미뤄둔 걸 드디어 질러 버린 해</p></div>
+      <div><span class="mono">06</span><b>우연</b><p>보기만 하려고 했는데</p></div>
+      <div><span class="mono">07</span><b>살린 강아지</b><p>아픈 채로 와서 같이 나아진 강아지</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <header class="sec-h"><span class="mono">문답</span><h2>자주 물어보는 거</h2></header>
+    <div class="info faq">
+      <div class="row"><span>태어난 시간 몰라요</span><span>괜찮아요. 시간 칸만 빼고 6글자로 봐요. 대운 그래프랑 입양 분석은 똑같이 나와요.</span></div>
+      <div class="row"><span>데려온 날짜가 기억 안 나요</span><span>생일로 골라서 넣어도 되고, 몇 년 몇 월까지만 넣어도 돼요. 날짜를 모르면 그달 기운으로 봐요.</span></div>
+      <div class="row"><span>구조해서 만난 날을 생일로 정했어요</span><span>그럼 생일로 골라서 그 날짜를 넣으면 돼요. 계산은 똑같이 하고 문구만 생일 기준으로 나와요.</span></div>
+      <div class="row"><span>저는 여러 반려동물의 보호자예요.</span><span>반려동물 각각 독립된 리포트로 제공됩니다. 반려동물 여럿의 리포트를 원하신다면 각각 신청하셔야 해요.</span></div>
+      <div class="row"><span>결제는 어떻게 해요?</span><span>리포트 아래 '나머지 다 보기'로 그로블(Groble)에서 결제하면, 그 리포트로 돌아와서 04–09장이 바로 열려요. 코드 넣을 필요 없어요. 다른 기기에서 볼 땐 결과 링크를 열거나, 같은 정보를 넣고 결제한 휴대폰 번호로 다시 열 수 있어요.</span></div>
+      <div class="row"><span>시간 보정도 해요?</span><span>네. 한국은 실제 태양 시간보다 시계가 30분 빨라서 그만큼 당겨서 봐요. 1954–61년 표준시랑 1948–60, 1987–88년 서머타임도 다 반영했어요.</span></div>
+      <div class="row"><span>얼마나 맞아요?</span><span>만세력 계산은 공개 만세력이랑 대조해서 맞췄어요. 해석은 명리학 기본 규칙대로 했는데, 맞는 정도는 솔직히 사람마다 달라요.</span></div>
+    </div>
+  </section>
+</main>
+<!--FOOT-->
+<script type="module" src="/src/pages/index.ts"></script>
+</body>
+</html>

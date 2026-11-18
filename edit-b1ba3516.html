@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!--HEAD-->
+<title>문구 편집 · 보호자사주</title>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ed-body">
+<header class="ed-top"><div class="ed-top-in">
+  <b class="ed-brand"><span class="seal">犬</span>문구 편집</b>
+  <input class="ed-search" type="search" placeholder="문구 찾기 (예: 운이 좋았지)" aria-label="문구 찾기">
+  <span class="mono ed-count" data-count></span>
+  <a class="btn ghost ed-sm" href="./sample.html?draft" target="_blank" rel="noopener">예시 리포트로 미리보기</a>
+  <button class="btn ghost ed-sm" type="button" data-mine>내 리포트로 미리보기</button>
+  <button class="btn ed-sm" type="button" data-save>저장하고 배포</button>
+</div></header>
+<div class="ed-wrap">
+  <nav class="ed-nav" data-nav></nav>
+  <main class="ed-main">
+    <section class="ed-intro">
+      <h1>리포트 문구 편집</h1>
+      <p>고친 칸은 바로 이 브라우저에 임시 저장돼요. <b>미리보기</b>로 리포트에서 어떻게 보이는지 보고, <b>저장하고 배포</b>를 누르면 1~2분 뒤 사이트에 반영돼요.</p>
+      <p class="mono mute">목록 칸은 한 줄에 하나씩. 강아지 이름 대신 "강아지"라고 쓰면 일부 칸("끊어주는 순간")은 실제 이름으로 바뀌어요. 느낌표나 이모지, 광고 말투는 문체 검사에 걸려서 저장이 안 돼요.</p>
+      <p class="mono mute">이 주소는 사이트 어디에도 링크가 없어요. 저장하려면 GitHub 토큰이 필요하니, 주소가 새도 문구를 바꿀 수는 없어요.</p>
+    </section>
+    <div data-list></div>
+  </main>
+</div>
+<dialog class="ed-dlg" data-dlg>
+  <form method="dialog" class="ed-dlg-in">
+    <h2>GitHub 토큰</h2>
+    <p>처음 한 번만 만들면 돼요. 이 탭을 닫으면 지워져서, 새로 열 때마다 다시 붙여 넣어야 해요.</p>
+    <ol>
+      <li><a class="wl" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub 토큰 만들기</a> 열기 (hubhub5 계정으로 로그인한 상태)</li>
+      <li>Token name: 아무거나 (예: zoosa2 문구). Expiration: 90 days</li>
+      <li>Repository access: <b>Only select repositories</b> → <b>zoosa2</b></li>
+      <li>Permissions → Repository permissions: <b>Contents: Read and write</b>, <b>Actions: Read-only</b></li>
+      <li>Generate token → 나온 값(github_pat_로 시작)을 복사해서 아래에 붙여 넣기</li>
+    </ol>
+    <input name="token" type="password" autocomplete="off" placeholder="github_pat_..." aria-label="GitHub 토큰">
+    <p class="mono mute">토큰은 GitHub 말고 다른 곳으로는 보내지 않아요.</p>
+    <div class="ed-dlg-b"><button class="btn ghost ed-sm" value="cancel">취소</button><button class="btn ed-sm" value="ok">저장 계속</button></div>
+  </form>
+</dialog>
+<div class="ed-toast mono" role="status" data-toast></div>
+<script type="module" src="/src/pages/edit.ts"></script>
+</body>
+</html>

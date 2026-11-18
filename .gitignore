@@ -1,0 +1,8 @@
+node_modules
+dist
+.DS_Store
+pixel/preview
+worker/node_modules
+worker/.wrangler
+worker/.shapes_key
+.dev.vars
