@@ -21,6 +21,8 @@ export const CONFIG = {
     '26551dce00ef5fd9671f1298ee319a874263c5fb0239c24a8b354a1acd0c3cd0', // 테스터 08
     '7a075cae8463cf2dd3a62fec491972e66f2e973f465de5b80f9f6cb024173b67', // 테스터 09
     '51d22119b2110ecb7bb71f38443e5a6e5127f1fe173fc3bd8f9125f74334a18b', // 테스터 10
+    '42009ffcdcf53b89a4577e78958c8469e804dedf7aa31b18170c07c72cbd0022', // 테스터 11
+    'f723efba03fe14d57d855be97b428074c45455611da7f5fabc5b62faeb4113f0', // 테스터 12
   ],
   contact: 'study_4ever@naver.com',
   seller: '놀이댕산',
