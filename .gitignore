@@ -6,3 +6,4 @@ worker/node_modules
 worker/.wrangler
 worker/.shapes_key
 .dev.vars
+tester-codes.txt

@@ -10,7 +10,17 @@ export const CONFIG = {
    * 코드를 바꿀 때는 기존 해시를 바로 지우지 말고 2~4주 함께 둔다.
    */
   unlockHashes: <string[]>[
-    // TODO: 이 사이트 전용 코드 해시 (node scripts/hash-code.mjs 새코드). 보호자사주(zoosa) 코드는 여기서 안 열린다
+    // 테스터용 무료 코드 10개 (2026-11-18). 원문은 저장소 밖 tester-codes.txt. 한 줄 지우면 그 코드만 막힌다
+    'add27122e2f4f406944026700887a3a3cac52145168c61afb4ddcb9f9824ea8c', // 테스터 01
+    'df9ef8b40d6ccb6355a435185da8ae2a285e76d7d2ef7f4d012b2871b2ee8cba', // 테스터 02
+    '6b2255bd259f91925b7d986157d11c2ed79a4dd9af45c5e50f8ea9f1304c49a3', // 테스터 03
+    'c9704e032753c72ca290d319ee8e142ffe6ca7b486f95cb6e2fd7e4ab09f3ffb', // 테스터 04
+    'cecafd2b6d9d911057b861eb2473cb9e7ebe8668030ae81808fa93e6018e8e1e', // 테스터 05
+    'fd36eee758ba592792a3f612445ea2ca29503c241892f9748bb1cbf598f15c47', // 테스터 06
+    'aef1407b4abb20f575cbf60e94cf216e70f5bf5794ac3884a54d95a2c2f57f9f', // 테스터 07
+    '26551dce00ef5fd9671f1298ee319a874263c5fb0239c24a8b354a1acd0c3cd0', // 테스터 08
+    '7a075cae8463cf2dd3a62fec491972e66f2e973f465de5b80f9f6cb024173b67', // 테스터 09
+    '51d22119b2110ecb7bb71f38443e5a6e5127f1fe173fc3bd8f9125f74334a18b', // 테스터 10
   ],
   contact: 'study_4ever@naver.com',
   seller: '놀이댕산',
