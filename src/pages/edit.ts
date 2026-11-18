@@ -11,18 +11,21 @@ import '../styles/edit.css';
 
 /* ---------- 어떤 칸을 어떤 이름으로 보여 줄지 */
 const LABEL: Record<string, string> = {
-  'VERDICT_META.label': '꼬리표',
-  'VERDICT.me': '첫 줄 (…하는 내게,)', 'VERDICT.msg': '강아지가 해 주는 말 ("다"로 끝나게)',
-  'STEM_TEXT.image': '이미지', 'STEM_TEXT.words': '한마디로 (단어)', 'STEM_TEXT.outside': '남들 눈엔', 'STEM_TEXT.inside': '실제론', 'STEM_TEXT.asOwner': '보호자 타입',
-  'ADOPT.tag': '짧은 이름', 'ADOPT.title': '제목 ("그해 나는 ___였을 거예요")', 'ADOPT.checks': '체크리스트', 'ADOPT.quotes': '그때 이런 말 했을걸요', 'ADOPT.after': '뭐가 바뀌었냐면 (→ 꼭 넣기)',
-  'ADOPT_DEEP.said': '남들한테 댄 이유', 'ADOPT_DEEP.real': '한 겹 아래',
-  'EL_TEXT.lack': '모자라면', 'EL_TEXT.excess': '넘치면 (08장 내려놓을 거)', 'EL_TEXT.before': '오기 전 (한 단어)', 'EL_TEXT.after': '온 뒤 (한 단어)', 'EL_TEXT.act': '같이 하면 좋은 거', 'EL_TEXT.gives': '강아지가 준 거',
-  'DIST.name': '이름', 'DIST.en': '영문 이름', 'DIST.def': '한 줄 정의', 'DIST.when': '이럴 때 발동', 'DIST.inner': '머릿속 자동재생 (첫 줄은 잠금 화면에도 나옴)',
-  'DIST.scenes': '실제로는 이런 식', 'DIST.at': '어디서', 'DIST.line': '장면', 'DIST.costs': '그래서 생기는 일', 'DIST.dog': '강아지가 끊어주는 순간',
+  'VERDICT_META.label': '꼬리표', 'VERDICT_META.back': '첫 줄 끝 (연도 뒤)', 'VERDICT_META.up': '셋째 줄 · 대운에서 세질 때', 'VERDICT_META.down': '셋째 줄 · 느슨해질 때', 'VERDICT_META.flat': '셋째 줄 · 그대로일 때',
+  'VERDICT.0': '둘째 줄 (쉼표로 끝나게)', 'VERDICT.1': '둘째 줄 (쉼표로 끝나게)', 'VERDICT.2': '둘째 줄 (쉼표로 끝나게)',
+  'EVENT.boss': '상대가 윗사람인 해', 'EVENT.partner': '가장 가까운 사람인 해', 'EVENT.family': '집인 해', 'EVENT.friend': '친구 · 동료인 해', 'EVENT.mouth': '내가 꺼낸 말인 해', 'EVENT.money': '돈인 해',
+  'SLOT.who': '상대 이름', 'SLOT.saju': '사주 근거', 'SLOT.check': '체크리스트 (첫 줄 앞에 "○월 전후로," 붙음)',
+  'STEM_TEXT.image': '이미지', 'STEM_TEXT.words': '한마디로 (단어)', 'STEM_TEXT.outside': '남들 눈엔', 'STEM_TEXT.inside': '실제론', 'STEM_TEXT.work': '일할 때',
+  'EL_TEXT.lack': '모자라면', 'EL_TEXT.excess': '넘치면 (01장 몰린 기운)',
+  'DIST.name': '심리 용어 이름 (작게)', 'DIST.alias': '쉬운 이름 (크게)', 'DIST.saju': '사주 근거', 'DIST.en': '영문 이름', 'DIST.def': '한 줄 정의', 'DIST.when': '이럴 때 발동', 'DIST.inner': '머릿속 자동재생 (첫 줄은 03장 · 체크리스트에도 나옴)',
+  'DIST.scenes': '실제로는 이런 식', 'DIST.at': '어디서', 'DIST.line': '장면', 'DIST.costs': '그래서 생기는 일', 'DIST.off': '이 버릇이 잠깐 꺼지는 순간',
   'DIST.reframe': '바꿔 말하기', 'DIST.from': '원래 하던 말', 'DIST.to': '이렇게 바꿔 말하면',
   'DIST_DEEP.said': '겉으로 대는 이유', 'DIST_DEEP.real': '속을 뜯어보면', 'DIST_DEEP.fair': '억울할 수 있는데', 'DIST_DEEP.like': '비유하면', 'DIST_DEEP.test': '확인하는 법', 'DIST_DEEP.bar': '기준 낮추기',
+  'COPE.name': '이름', 'COPE.en': '심리 용어 (작게)', 'COPE.saju': '사주 근거', 'COPE.looks': '남들 눈엔', 'COPE.inside': '실제론', 'COPE.did': '그해마다 한 일 (되풀이된 해 문장 끝에 붙음)', 'COPE.check': '03장 체크리스트', 'COPE.costs': '그래서 생기는 일', 'COPE.verdict': '표지 둘째 줄 끝',
+  'COPE_DEEP.said': '겉으로 대는 이유', 'COPE_DEEP.real': '속을 뜯어보면', 'COPE_DEEP.fair': '억울할 수 있는데', 'COPE_DEEP.like': '비유하면', 'COPE_DEEP.test': '확인하는 법', 'COPE_DEEP.bar': '기준 낮추기',
+  'CONFLICT.name': '이름', 'CONFLICT.saju': '사주 근거', 'CONFLICT.trigger': '이럴 때 시작 (03장 고리 첫 칸)', 'CONFLICT.scenes': '관계별 장면', 'CONFLICT.at': '관계', 'CONFLICT.line': '장면', 'CONFLICT.costs': '그래서 생기는 일', 'CONFLICT.say': '다음엔 이 말',
   'GROUP_THEME.ten': '10년 제목', 'GROUP_THEME.words': '단어',
-  'TG_TEXT.tag': '꼬리표', 'TG_TEXT.words': '단어', 'TG_TEXT.good': '잘 풀리는 거', 'TG_TEXT.watch': '조심할 거', 'TG_TEXT.dog': '강아지 한 줄',
+  'TG_TEXT.tag': '꼬리표', 'TG_TEXT.words': '단어', 'TG_TEXT.good': '잘 풀리는 거', 'TG_TEXT.watch': '조심할 거', 'TG_TEXT.people': '사람 쪽 한 줄',
 };
 const SKIP = new Set(['factors']);
 const labelOf = (path: string) => { const k = path.split('.'); return LABEL[`${k[0]}.${k[k.length - 1]}`] ?? LABEL[`${k[0]}.${k[k.length - 2]}`] ?? k[k.length - 1]; };
@@ -31,20 +34,25 @@ interface Group { title: string; paths: string[] }
 interface Section { id: string; title: string; where: string; groups: Group[] }
 const keysOf = (root: string) => Object.keys(ROOTS[root]);
 const SECTIONS: Section[] = [
-  { id: 'cover', title: '표지 한 줄', where: '리포트 맨 위 "왜 하필 그때였을까" 칸, 인스타 카드. 1위 생각 버릇에 따라 세 줄 중 하나가 골라져요.', groups: [
-    { title: '꼬리표', paths: ['VERDICT_META'] },
-    ...keysOf('VERDICT').map((id) => ({ title: `${ROOTS.DIST[id].name} 1위일 때`, paths: [`VERDICT.${id}`] })),
-    ...EL_ORDER.map((e) => ({ title: `셋째 줄 · 채워준 기운이 ${EL_KO[e]}일 때`, paths: [`VERDICT_EL.${e}`] })),
+  { id: 'cover', title: '표지 한 줄', where: '리포트 맨 위 "이 사주에서 되풀이된 것" 칸, 저장 카드. 둘째 줄은 1위 생각 버릇에 따라 세 줄 중 하나가 골라지고, 뒤에 1위 대처의 "표지 둘째 줄 끝"이 붙어요.', groups: [
+    { title: '꼬리표 · 첫 줄 · 셋째 줄', paths: ['VERDICT_META'] },
+    ...keysOf('VERDICT').map((id) => ({ title: `${ROOTS.DIST[id].alias} 1위일 때`, paths: [`VERDICT.${id}`] })),
   ] },
-  { id: 'stem', title: '01장 · 일간', where: '01장 "일간 / 한마디로 / 남들 눈엔 / 보호자 타입" 줄. 08장에도 보호자 타입이 나와요.', groups:
+  { id: 'stem', title: '01장 · 일간', where: '01장 "일간 / 한마디로 / 남들 눈엔 / 일할 때" 줄.', groups:
     STEMS.map((s, i) => ({ title: `${s} ${STEM_KO[i]}${EL_KO[STEM_EL[i]]}`, paths: [`STEM_TEXT.${i}`] })) },
-  { id: 'adopt', title: '03장 · 입양 계기', where: '03장 (무료). 7가지 중 점수가 제일 높은 계기 하나가 나와요. "뭐가 바뀌었냐면"은 04·08장에도 쓰여요.', groups:
-    keysOf('ADOPT').map((id) => ({ title: ROOTS.ADOPT[id].tag, paths: [`ADOPT.${id}`, `ADOPT_DEEP.${id}`] })) },
-  { id: 'el', title: '04장 · 오행', where: '04장 "오고 나서 바뀐 것", 08장 "주고받는 것".', groups:
+  { id: 'event', title: '03장 · 되풀이된 해 문장', where: '03장 (무료) · 05장. "{연도}년 {계절}." 뒤에 이 문장, 그 뒤에 1위 대처의 "그해마다 한 일"이 붙어요. 1위 생각 버릇 × 그해 상대로 골라져요.', groups: [
+    ...keysOf('EVENT').map((id) => ({ title: `${ROOTS.DIST[id].alias} 1위일 때`, paths: [`EVENT.${id}`] })),
+    ...keysOf('SLOT').map((id) => ({ title: `상대 · ${ROOTS.SLOT[id].who}`, paths: [`SLOT.${id}`] })),
+  ] },
+  { id: 'el', title: '01장 · 오행', where: '01장 "몰린 기운" 줄.', groups:
     EL_ORDER.map((e) => ({ title: `${EL_KO[e]} ${EL_HANJA[e]}`, paths: [`EL_TEXT.${e}`] })) },
-  { id: 'dist', title: '05장 · 생각 버릇', where: '05장. 상위 3개는 카드 전체, 나머지 7개는 정의와 대사 한 줄만 나와요.', groups:
-    keysOf('DIST').map((id) => ({ title: ROOTS.DIST[id].name, paths: [`DIST.${id}`, `DIST_DEEP.${id}`] })) },
-  { id: 'luck', title: '06·07장 · 대운과 해마다 운', where: '06장 대운 카드, 07장 10년 표, 02장 대운 표의 "천간 십성".', groups: [
+  { id: 'dist', title: '03 · 04장 · 생각 버릇', where: '04장. 상위 3개는 카드 전체, 나머지 7개는 정의와 대사 한 줄만. 1위는 03장 고리에도 나와요.', groups:
+    keysOf('DIST').map((id) => ({ title: ROOTS.DIST[id].alias, paths: [`DIST.${id}`, `DIST_DEEP.${id}`] })) },
+  { id: 'conflict', title: '03 · 05장 · 부딪히는 자리', where: '05장 상위 2개 카드. 1위의 "이럴 때 시작"은 03장 고리 첫 칸.', groups:
+    keysOf('CONFLICT').map((id) => ({ title: ROOTS.CONFLICT[id].name, paths: [`CONFLICT.${id}`] })) },
+  { id: 'cope', title: '03 · 06장 · 버티는 방식', where: '06장 상위 2개 카드. 1위는 03장 고리, 체크리스트, 되풀이된 해 문장 끝, 표지에도 쓰여요.', groups:
+    keysOf('COPE').map((id) => ({ title: ROOTS.COPE[id].name, paths: [`COPE.${id}`, `COPE_DEEP.${id}`] })) },
+  { id: 'luck', title: '07 · 08장 · 대운과 해마다 운', where: '07장 대운 카드, 08장 10년 표, 02장 대운 표의 "천간 십성".', groups: [
     ...keysOf('GROUP_THEME').map((g) => ({ title: `${GROUP_KO[g as keyof typeof GROUP_KO]} 대운`, paths: [`GROUP_THEME.${g}`] })),
     ...keysOf('TG_TEXT').map((t) => ({ title: TG_KO[t as keyof typeof TG_KO], paths: [`TG_TEXT.${t}`] })),
   ] },

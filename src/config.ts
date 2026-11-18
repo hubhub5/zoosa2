@@ -2,19 +2,19 @@
 export const CONFIG = {
   /** 그로블 상품 페이지 주소  */
   grobleUrl: '', // TODO: 새 그로블 상품(결제창) 주소
-  price: 9900,
-  priceLabel: '9,900원',
+  price: 13900,
+  priceLabel: '13,900원',
   /**
    * 해제코드의 SHA-256 해시 목록. 코드 원문은 여기에 두지 않는다.
    * 새 코드 만들기: node scripts/hash-code.mjs 새코드
    * 코드를 바꿀 때는 기존 해시를 바로 지우지 말고 2~4주 함께 둔다.
    */
-  unlockHashes: [
+  unlockHashes: <string[]>[
     // TODO: 이 사이트 전용 코드 해시 (node scripts/hash-code.mjs 새코드). 보호자사주(zoosa) 코드는 여기서 안 열린다
   ],
   contact: 'study_4ever@naver.com',
   seller: '놀이댕산',
-  brand: '보호자사주',
+  brand: '되풀이사주',
   /** 관리자 편집 페이지가 문구를 저장할 GitHub 저장소 */
   repo: 'hubhub5/zoosa2',
   /**

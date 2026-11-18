@@ -1,5 +1,4 @@
 import type { DistId } from '../engine/distortion';
-import type { BranchId } from '../engine/adoption';
 
 // '한 겹 더' 칸. 겉으로 대는 이유 → 실제로 돌아가는 구조 → 억울한 지점 인정 → 생활 비유 → 직접 확인하는 법 → 기준 낮추기
 export interface Deep { said: string; real: string; fair: string; like: string; test: string; bar: string }
@@ -27,7 +26,7 @@ export const DIST_DEEP: Record<DistId, Deep> = {
     fair: '실수를 곱씹는 사람이 일은 꼼꼼하게 해요. 이 버릇 덕에 막은 사고도 분명 있었을 거예요.',
     like: '리뷰 100개 중에 별 하나짜리만 계속 새로고침하는 사장님.',
     test: '별로였던 그 하나, 상대도 지금까지 기억하고 있을지. 대부분 나만 기억해요.',
-    bar: '자기 전에 잘된 거 하나만 소리 내서 말하기. 강아지한테 해도 돼요.',
+    bar: '자기 전에 잘된 거 하나만 소리 내서 말하기. 혼잣말이어도 돼요.',
   },
   discount: {
     said: '에이, 운이 좋았지',
@@ -85,15 +84,4 @@ export const DIST_DEEP: Record<DistId, Deep> = {
     test: '같은 일이 친구한테 생겼으면 친구 탓이라고 했을지. 아니라면 나한테만 다른 계산을 쓰고 있는 거예요.',
     bar: '"미안해" 대신 "내가 할 수 있는 건 이거야". 책임질 만큼만 들고 오기.',
   },
-};
-
-// 03장: 그때 남들한테 댄 이유와, 한 겹 아래 이유
-export const ADOPT_DEEP: Record<BranchId, { said: string; real: string }> = {
-  move: { said: '이제 키울 조건이 돼서', real: '조건은 핑계고, 새 집이 너무 조용했어요. 집이 집 같으려면 뭐가 하나 더 있어야 했던 거.' },
-  work: { said: '이제 책임질 여유가 생겨서', real: '돈이 생긴 것도 맞는데, 일만 하는 하루에 퇴근해야 할 이유가 필요했어요.' },
-  relation: { said: '원래 키우고 싶었어', real: '사람 빈자리를 바로 사람으로 채우긴 겁나니까, 나를 떠나지 않을 쪽을 고른 거예요.' },
-  low: { said: '얘가 날 필요로 해서', real: '반대에 가까워요. 나를 위해서는 못 일어나도, 얘 밥 때문엔 일어나지니까.' },
-  restart: { said: '그냥 이번엔 하고 싶어서', real: '미뤄 둔 걸 하나 해치우면 다른 것도 될 것 같았어요. 강아지가 그 첫 번째 증거였고요.' },
-  chance: { said: '우연히 만난 거야', real: '만난 건 우연인데, 그날 그 사진에서 손이 멈춘 건 우연이 아니에요. 이미 뭔가 비어 있었던 거.' },
-  rescue: { said: '얘가 너무 불쌍해서', real: '불쌍한 마음만으로는 그 병원비랑 밤들을 못 버텨요. 누굴 살리는 일이 그때 나한테도 필요했던 거예요.' },
 };

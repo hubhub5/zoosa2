@@ -1,4 +1,4 @@
-# zoosa2 (보호자사주 복사본에서 출발한 새 사주 사이트)
+# zoosa2 · 되풀이사주 (보호자사주 복사본에서 출발)
 
 > 2026-11-18 hubhub5/zoosa 를 복사해 시작. 결제·서버 설정은 비어 있다. 판매 시작 전 할 일은 `CLAUDE.md` 참고.
 
@@ -44,7 +44,6 @@
 | `npm test` | 만세력·리포트 테스트 (무작위 입력 300건 렌더링 포함) |
 | `npm run lint` | AI 문체 검사 (`scripts/lint-tone.mjs`) |
 | `npm run build` | 문체 검사 후 `dist/` 빌드 |
-| `npm run pixel` | 픽셀 GIF 다시 그리기 (`pixel/build.mjs`) |
 | `npm run norms` | 인지왜곡 분위 기준표 다시 만들기 (계산식을 바꿨을 때) |
 
 OG 이미지(`public/og.png`)는 글꼴이 들어가서 브라우저에서 만든다: `npm run dev` 후 `/scripts/og.html`을 열면 저장된다.
@@ -56,20 +55,10 @@ OG 이미지(`public/og.png`)는 글꼴이 들어가서 브라우저에서 만�
 - `src/engine/distortion.ts` 원국 비중 → 인지왜곡 10종 원점수 → `norms.json`(2만 명 분위)
 - `src/content/` 문구 데이터. 문장을 길게 늘리지 말고 칸에 맞는 짧은 말로
 - `src/report/` 모델 조립과 HTML 렌더링
-- `pixel/` 도형 → 픽셀 엔진과 스프라이트 정의
 
 ## 문구 원칙
 
 긴 줄글 대신 고정 양식: 숫자, 단어, 실제 말투의 대사, 장면. 느낌표·이모지·'여정'·'특별한 인연' 같은 표현은 `npm run lint`가 막는다.
-
-## 견종 · 털색 추가하기
-
-1. `pixel/breeds.mjs`
-   - 새 견종: `BREEDS`에 한 줄 (몸·머리·귀·꼬리 모양, 기본 색, 무늬)
-   - 털색: `COLORS[견종]`에 추가. 첫 번째가 기본. 무늬가 견종 특징이면 `marks`, `ear`까지 같이 바꾼다
-2. `node pixel/sheet.mjs` → `pixel/preview/breeds.png`에서 전 조합 확인
-3. `npm run pixel` (GIF 다시 만들기)
-4. `src/content/breeds.ts`는 `pixel/breeds.mjs`의 이름 목록과 같게 맞춘다 (견종 id, 털색 id, 이름)
 
 ## 결제 확인 서버 (그로블 웹훅)
 

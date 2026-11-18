@@ -2,9 +2,11 @@
 // overrides.json: { "DIST.allOrNothing.def": "새 문장", "DIST.allOrNothing.inner": ["줄1", "줄2"] }
 // 이 모듈을 import 하는 순간 적용된다 (report.ts 에서 렌더링 전에 import).
 import { DIST } from './distortions';
-import { DIST_DEEP, ADOPT_DEEP } from './deep';
-import { ADOPT } from './adoption';
-import { VERDICT, VERDICT_EL, VERDICT_META } from './verdict';
+import { DIST_DEEP } from './deep';
+import { VERDICT, VERDICT_META } from './verdict';
+import { COPE, COPE_DEEP } from './coping';
+import { CONFLICT } from './conflict';
+import { EVENT, SLOT } from './events';
 import { STEM_TEXT, TG_TEXT, GROUP_THEME, EL_TEXT } from './saju';
 import saved from './overrides.json';
 
@@ -12,7 +14,7 @@ export type OvValue = string | string[];
 export type Ov = Record<string, OvValue>;
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const ROOTS: Record<string, any> = { VERDICT_META, VERDICT, VERDICT_EL, STEM_TEXT, ADOPT, ADOPT_DEEP, EL_TEXT, DIST, DIST_DEEP, GROUP_THEME, TG_TEXT };
+export const ROOTS: Record<string, any> = { VERDICT_META, VERDICT, EVENT, SLOT, STEM_TEXT, DIST, DIST_DEEP, COPE, COPE_DEEP, CONFLICT, EL_TEXT, GROUP_THEME, TG_TEXT };
 /** 코드에 적힌 원래 문구 (덮어쓰기 전) */
 export const DEFAULTS: Record<string, any> = JSON.parse(JSON.stringify(ROOTS));
 /** 배포된 overrides.json */
@@ -35,7 +37,7 @@ export function invalid(path: string, v: unknown): string {
   if (typeof def === 'string') {
     if (typeof v !== 'string') return '글자여야 해요';
     if (!v.trim()) return '비워 둘 수 없어요';
-    if (/^ADOPT\.[^.]+\.after$/.test(path) && v.split('→').length !== 2) return '"→"가 딱 한 번 들어가야 해요 (앞: 오기 전, 뒤: 온 뒤)';
+    if (/^VERDICT\.[^.]+\.\d+$/.test(path) && !/,$/.test(v.trim())) return '쉼표(,)로 끝나야 뒤 문장과 이어져요';
     return '';
   }
   if (Array.isArray(def) && def.every((x) => typeof x === 'string')) {

@@ -2,26 +2,28 @@
 <html lang="ko">
 <head>
 <!--HEAD-->
-<title>보호자사주 · 얘는 왜 하필 그때 나한테 왔을까</title>
-<meta name="description" content="강아지 사주 말고 내 사주. 우리 강아지가 내 인생 몇 번째 대운에 왔는지, 그해 나한테 무슨 일이 있었는지 봐요.">
-<meta property="og:title" content="보호자사주 · 얘는 왜 하필 그때 나한테 왔을까">
-<meta property="og:description" content="내 대운 그래프 위에 우리 강아지 온 날 찍어 보기">
-<meta property="og:image" content="%SITE%og.png?v=20261118">
+<title>되풀이사주 l '또 이러네'가 몇 번째인지</title>
+<meta name="description" content="대운 · 세운으로 짚어 보는 내 사주. 같은 장면이 되풀이된 해를 연도로 찍고, 그때마다 머릿속에서 돈 말과 내가 고른 대처까지 읽어요.">
+<meta property="og:title" content="되풀이사주 l '또 이러네'가 몇 번째인지">
+<meta property="og:description" content="내 사주에서 같은 장면이 돌아온 해, 연도로 찍어 보기">
+<meta property="og:image" content="%SITE%og.png?v=20261118b">
 </head>
 <body>
 <!--TOP-->
 <main class="wrap page">
   <div class="land">
     <div class="land-l">
-      <div class="kicker mono"><span>대운 리포트</span><span>v1.0 · 2026.11</span><span>계산 기준 · 진태양시 −30분</span></div>
-      <h1 class="land-t">얘는 왜 하필<br>그때 나한테 왔을까</h1>
-      <p class="land-p">강아지 사주 아니고 <b>내 사주</b>예요. 10년마다 바뀌는 대운 위에 우리 강아지 데려온 날을 찍어 보면, 그해 나한테 무슨 일이 있었는지가 보여요. 내 생각 버릇까지 같이.</p>
+      <div class="kicker mono"><span>대운 · 세운 리포트</span><span>v1.0 · 2026.11</span><span>계산 기준 · 진태양시 −30분</span></div>
+      <h1 class="land-t">'또 이러네'가<br>몇 번째인지</h1>
+      <p class="land-p">사주 여덟 글자에 10년짜리 대운, 1년짜리 세운을 겹쳐 보면 <b>같은 장면이 돌아온 해</b>가 연도로 찍혀요. 그해 누구와 부딪혔는지, 머릿속에서 무슨 말이 돌았는지, 그래서 내가 어떻게 넘겼는지까지.</p>
       <div class="land-stat mono">
-        <span><b>10</b>년 단위 대운</span><span><b>7</b>가지 입양 계기</span><span><b>10</b>가지 생각 버릇</span><span><b>10</b>년 운세 표</span>
+        <span><b>10</b>년 단위 대운</span><span><b>3–5</b>개 되풀이된 해</span><span><b>10</b>가지 생각 버릇</span><span><b>6</b>가지 대처</span>
       </div>
     </div>
-    <div class="land-r">
-      <img class="px" src="./px/scene-mix-cream.gif" width="440" height="220" alt="한복 입은 보호자랑 강아지 픽셀 그림" id="land-art">
+    <div class="land-r land-demo" aria-label="예시 리포트의 되풀이된 해">
+      <div class="ld-h mono"><span>예시 · 1993년생 여 · 03장 일부</span><span data-demo-day></span></div>
+      <ol class="ld-l" data-demo></ol>
+      <p class="ld-f mono">내 생일을 넣으면 내 연도로 바뀌어요</p>
     </div>
   </div>
 
@@ -43,34 +45,19 @@
         </div>
         <div class="f"><span>성별</span>
           <div class="seg"><label><input type="radio" name="g" value="f" checked><span>여</span></label><label><input type="radio" name="g" value="m"><span>남</span></label></div>
-          <small>대운 방향(순행, 역행) 정할 때 필요해서 물어봐요.</small>
+          <small>대운 방향(순행, 역행)이랑 배우자 자리 읽을 때 필요해서 물어봐요.</small>
         </div>
       </fieldset>
       <fieldset>
-        <legend>우리 강아지</legend>
-        <label class="f"><span>이름</span><input name="dog" maxlength="10" placeholder="율이" required></label>
-        <div class="f"><span>어떤 날짜로 볼까요?</span>
-          <div class="seg"><label><input type="radio" name="dt" value="m" checked><span>우리 집 온 날</span></label><label><input type="radio" name="dt" value="b"><span>생일</span></label></div>
-          <small>만난 날을 모르거나, 구조한 날을 생일로 정했다면 생일로 골라 주세요.</small>
-        </div>
-        <div class="f"><span data-dlabel>우리 집 온 날</span>
-          <div class="ymd"><input name="ay" inputmode="numeric" maxlength="4" placeholder="2021" aria-label="연도"><input name="am" inputmode="numeric" maxlength="2" placeholder="05" aria-label="월"><input name="ad" inputmode="numeric" maxlength="2" placeholder="일(모르면 비움)" aria-label="일"></div>
-          <small>날짜까지 알면 그날 일진이 우리 강아지 기둥이 돼요. 기억 안 나면 월까지만.</small>
-        </div>
-        <div class="f two-sel">
-          <label><span>견종</span><input name="breed" list="breed-list" maxlength="24" placeholder="치면 추천이 떠요" autocomplete="off"></label>
-          <label><span>털색</span><input name="color" list="color-list" maxlength="16" placeholder="예: 검정, 크림" autocomplete="off"></label>
-          <datalist id="breed-list"></datalist><datalist id="color-list"></datalist>
-          <small class="sel-note">목록에 없으면 그냥 쓰면 돼요. 쓴 그대로 리포트에 나와요.</small>
-        </div>
-        <label class="f"><span>어떻게 왔어요? <i>안 써도 됨</i></span>
-          <select name="route"><option value="">안 고를래요</option><option value="shop">분양 (펫숍 · 브리더)</option><option value="shelter">보호소 · 임보 입양</option><option value="rescue">구조</option><option value="family">가족 · 지인에게서</option><option value="etc">기타</option></select>
+        <legend>요즘</legend>
+        <label class="f"><span>제일 걸리는 쪽 <i>안 골라도 됨</i></span>
+          <select name="focus"><option value="">안 고를래요</option><option value="work">일 · 윗사람</option><option value="love">연애 · 배우자</option><option value="family">가족</option><option value="money">돈</option><option value="self">나 자신</option></select>
+          <small>고르면 03장 체크리스트와 05장 장면이 그쪽부터 나와요. 계산 결과는 안 바뀌어요.</small>
         </label>
-        <label class="f chk"><input type="checkbox" name="sick"><span>처음 왔을 때 아팠거나 상태가 안 좋았어요</span></label>
       </fieldset>
       <p class="fm-err mono" role="alert"></p>
       <button class="btn fm-go" type="submit">무료로 앞부분 보기</button>
-      <p class="mono mute fine">01–03장은 무료. 더 보고 싶으면 04–09장 9,900원. <a class="wl" href="./sample.html">결제하면 뭐가 나오는지 예시 보기</a></p>
+      <p class="mono mute fine">01–03장은 무료. 나머지 04–09장은 13,900원. <a class="wl" href="./sample.html">결제하면 뭐가 나오는지 예시 보기</a></p>
     </form>
   </section>
 
@@ -79,42 +66,40 @@
     <div class="scroll-x"><table class="tbl toc-t">
       <thead><tr><th>장</th><th>내용</th><th>형태</th><th></th></tr></thead>
       <tbody>
-        <tr><td class="mono">01</td><td><b>내 사주 여덟 글자</b><br><span class="mute">나는 어떤 사람인지, 오행 뭐가 많고 뭐가 없는지</span></td><td>사주표 · 막대</td><td class="mono">무료</td></tr>
-        <tr><td class="mono">02</td><td><b>10년씩 끊어 본 인생</b><br><span class="mute">0살부터 90살까지 운 그래프. 우리 강아지 온 날 표시</span></td><td>선 그래프 · 표</td><td class="mono">무료</td></tr>
-        <tr><td class="mono">03</td><td><b>우리 강아지가 온 때</b><br><span class="mute">그해 나한테 무슨 일이 있었는지. 7가지 계기 중 어디였는지</span></td><td>체크리스트</td><td class="mono">무료</td></tr>
-        <tr><td class="mono">04</td><td><b>강아지가 오고 나서 바뀐 것</b><br><span class="mute">우리 강아지가 내 사주에서 뭘 채워 줬는지</span></td><td>전후 막대</td><td class="mono acc">유료</td></tr>
-        <tr><td class="mono">05</td><td><b>내 생각 버릇 10가지</b><br><span class="mute">흑백논리, 과잉일반화, 개인화 같은 거. 상위 3개는 내 속마음이랑 실제 상황까지</span></td><td>분위 막대 · 카드</td><td class="mono acc">유료</td></tr>
-        <tr><td class="mono">06</td><td><b>지금 10년, 다음 10년</b></td><td>카드</td><td class="mono acc">유료</td></tr>
-        <tr><td class="mono">07</td><td><b>우리 강아지랑 같이 갈 10년</b><br><span class="mute">해마다 운, 조심할 달, 좋은 달, 강아지랑 관련된 한 줄</span></td><td>표</td><td class="mono acc">유료</td></tr>
-        <tr><td class="mono">08</td><td><b>주고받는 것</b></td><td>단어 목록</td><td class="mono acc">유료</td></tr>
-        <tr><td class="mono">09</td><td><b>인스타용 카드</b></td><td>이미지</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">01</td><td><b>사주 여덟 글자</b><br><span class="mute">일간, 오행·십성 비중, 버티는 힘, 남들 눈에 보이는 나와 실제의 나</span></td><td>사주표 · 막대</td><td class="mono">무료</td></tr>
+        <tr><td class="mono">02</td><td><b>10년씩 끊어 본 인생</b><br><span class="mute">0살부터 90살까지 운 그래프. 같은 장면이 되풀이된 해 표시</span></td><td>선 그래프 · 표</td><td class="mono">무료</td></tr>
+        <tr><td class="mono">03</td><td><b>이미 몇 번 겪은 일</b><br><span class="mute">이럴 때 → 머릿속 말 → 내가 고른 대처 → 결국. 되풀이된 해와 그해 장면, 체크리스트</span></td><td>고리 · 연도 · 체크</td><td class="mono">무료</td></tr>
+        <tr><td class="mono">04</td><td><b>생각 버릇 10가지</b><br><span class="mute">순위, 상위 3개는 머릿속 자동재생 · 실제 장면 · 한 겹 아래 · 바꿔 말하기</span></td><td>분위 막대 · 카드</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">05</td><td><b>부딪히는 자리</b><br><span class="mute">같은 싸움이 되풀이되는 곳 6가지. 가족 · 연인 · 일 · 친구별 장면, 되풀이된 해 전부와 다음 차례</span></td><td>막대 · 연도</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">06</td><td><b>버티는 방식</b><br><span class="mute">피하기 · 참기 · 터뜨리기 · 움켜쥐기 · 맞춰주기 · 머리로 정리. 왜 그걸 고르는지</span></td><td>막대 · 카드</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">07</td><td><b>지금 10년, 다음 10년</b><br><span class="mute">이 대운에서 커지는 버릇</span></td><td>카드</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">08</td><td><b>앞으로 10년</b><br><span class="mute">해마다 운, 조심할 달, 같은 장면이 오는 해</span></td><td>표</td><td class="mono acc">유료</td></tr>
+        <tr><td class="mono">09</td><td><b>저장 카드</b></td><td>이미지</td><td class="mono acc">유료</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section class="sec">
-    <header class="sec-h"><span class="mono">계기</span><h2>강아지 데려오는 타이밍, 거의 이 중 하나</h2><small>03장에서 내 건 뭔지 나와요</small></header>
+    <header class="sec-h"><span class="mono">고리</span><h2>되풀이는 대개 이렇게 생겼어요</h2><small>03장에서 내 고리가 나와요</small></header>
     <div class="routes">
-      <div><span class="mono">01</span><b>이사 · 독립</b><p>이사, 첫 자취, "여기 반려동물 된대"</p></div>
-      <div><span class="mono">02</span><b>일 · 돈</b><p>취업, 이직, 재택. 병원비 계산이 딱 선 때</p></div>
-      <div><span class="mono">03</span><b>관계</b><p>이별, 가족 독립. 집이 너무 조용해진 때</p></div>
-      <div><span class="mono">04</span><b>멘탈</b><p>아침에 일어날 이유가 필요했던 때</p></div>
-      <div><span class="mono">05</span><b>리셋</b><p>오래 미뤄둔 걸 드디어 질러 버린 해</p></div>
-      <div><span class="mono">06</span><b>우연</b><p>보기만 하려고 했는데</p></div>
-      <div><span class="mono">07</span><b>살린 강아지</b><p>아픈 채로 와서 같이 나아진 강아지</p></div>
+      <div><span class="mono">01 이럴 때</span><b>윗사람이 이유 없이 "그냥 하라"고 할 때</b><p>관성과 상관이 마주 본 사주</p></div>
+      <div><span class="mono">02 머릿속에선</span><b>'또 이러네. 어딜 가도 똑같아'</b><p>편인이 겹친 사주</p></div>
+      <div><span class="mono">03 그래서 나는</span><b>겉으론 "네, 알겠습니다"</b><p>관성이 두꺼운 사주</p></div>
+      <div><span class="mono">04 결국</span><b>몸이 먼저 탈이 남</b><p>3–4년 뒤 같은 세운에서 다시</p></div>
     </div>
+    <p class="mono mute fine" style="margin-top:10px">예시예요. 실제 고리는 사주마다 달라요. 생각 버릇 10 × 대처 6 × 갈등 6.</p>
   </section>
 
   <section class="sec" id="faq">
     <header class="sec-h"><span class="mono">문답</span><h2>자주 물어보는 거</h2></header>
     <div class="info faq">
-      <div class="row"><span>태어난 시간 몰라요</span><span>괜찮아요. 시간 칸만 빼고 6글자로 봐요. 대운 그래프랑 입양 분석은 똑같이 나와요.</span></div>
-      <div class="row"><span>데려온 날짜가 기억 안 나요</span><span>생일로 골라서 넣어도 되고, 몇 년 몇 월까지만 넣어도 돼요. 날짜를 모르면 그달 기운으로 봐요.</span></div>
-      <div class="row"><span>구조해서 만난 날을 생일로 정했어요</span><span>그럼 생일로 골라서 그 날짜를 넣으면 돼요. 계산은 똑같이 하고 문구만 생일 기준으로 나와요.</span></div>
-      <div class="row"><span>저는 여러 반려동물의 보호자예요.</span><span>반려동물 각각 독립된 리포트로 제공됩니다. 반려동물 여럿의 리포트를 원하신다면 각각 신청하셔야 해요.</span></div>
-      <div class="row"><span>결제는 어떻게 해요?</span><span>리포트 아래 '나머지 다 보기'로 그로블(Groble)에서 결제하면, 그 리포트로 돌아와서 04–09장이 바로 열려요. 코드 넣을 필요 없어요. 다른 기기에서 볼 땐 결과 링크를 열거나, 같은 정보를 넣고 결제한 휴대폰 번호로 다시 열 수 있어요.</span></div>
+      <div class="row"><span>태어난 시간 몰라요</span><span>괜찮아요. 시간 칸만 빼고 6글자로 봐요. 대운이랑 되풀이된 해는 똑같이 나와요. 다만 시간까지 있으면 장면이 더 정확해져요.</span></div>
+      <div class="row"><span>되풀이된 해는 어떻게 골라요?</span><span>열네 살부터 작년까지 해마다 세운을 넣어 보고, 생각 버릇 1위가 가장 크게 튄 해와 세운이 일지 · 월지를 친 해를 점수로 매겨서 위에서부터 골라요. 서로 3년 넘게 떨어진 해만요.</span></div>
+      <div class="row"><span>하나도 안 맞으면요?</span><span>그럴 수 있어요. 솔직히 사람마다 달라요. 03장 체크리스트에서 몇 개 맞는지부터 세어 보고, 무료 부분이 안 맞으면 결제 안 하시면 돼요.</span></div>
+      <div class="row"><span>심리 검사예요?</span><span>아니에요. 생각 버릇 · 대처 이름은 심리상담에서 쓰는 분류를 빌렸지만, 점수는 사주 비중으로 매긴 거예요. 진단을 대신하지 않아요. 많이 힘들면 사주보다 상담이 먼저예요.</span></div>
+      <div class="row"><span>결제는 어떻게 해요?</span><span>리포트 아래 '나머지 다 보기'로 그로블(Groble)에서 결제하면, 그 리포트로 돌아와서 04–09장이 바로 열려요. 다른 기기에서 볼 땐 결과 링크를 열거나, 같은 정보를 넣고 결제한 휴대폰 번호로 다시 열 수 있어요. 결제 1건은 리포트 1개예요.</span></div>
       <div class="row"><span>시간 보정도 해요?</span><span>네. 한국은 실제 태양 시간보다 시계가 30분 빨라서 그만큼 당겨서 봐요. 1954–61년 표준시랑 1948–60, 1987–88년 서머타임도 다 반영했어요.</span></div>
-      <div class="row"><span>얼마나 맞아요?</span><span>만세력 계산은 공개 만세력이랑 대조해서 맞췄어요. 해석은 명리학 기본 규칙대로 했는데, 맞는 정도는 솔직히 사람마다 달라요.</span></div>
+      <div class="row"><span>입력한 정보는요?</span><span>서버로 안 가요. 주소 뒤쪽(#)에 담겨서 내 브라우저 안에서만 계산해요.</span></div>
     </div>
   </section>
 </main>

@@ -15,26 +15,10 @@ export function elementBars(pct: Record<El, number>, cnt: Record<El, number> | n
     </div>`).join('')}</div>`;
 }
 
-/** 전후 비교 막대 (같은 행에 두 줄) */
-export function pairedBars(before: Record<El, number>, after: Record<El, number>, highlight: El): string {
-  const max = Math.max(...EL_ORDER.flatMap((e) => [before[e], after[e]]), 1);
-  return `<div class="pbars">${EL_ORDER.map((e) => {
-    const d = Math.round((after[e] - before[e]) * 10) / 10;
-    return `<div class="pbar${e === highlight ? ' hi' : ''}" data-tip="${EL_KO[e]} ${before[e]}% → ${after[e]}%">
-      <span class="hb-l"><b style="color:${elVar(e)}">${EL_HANJA[e]}</b>${EL_KO[e]}</span>
-      <span class="pb-t">
-        <i class="b" style="width:${(before[e] / max) * 100}%"></i>
-        <i class="a" style="width:${(after[e] / max) * 100}%;background:${elVar(e)}"></i>
-      </span>
-      <span class="hb-v mono">${d > 0 ? '+' : ''}${d === 0 ? '·' : d.toFixed(1)}</span>
-    </div>`;
-  }).join('')}</div>`;
-}
-
 export interface TimelinePoint { year: number; age: number; v: number; daeun: number; seun: number }
 
 /** 대운 흐름 선 그래프 */
-export function timelineChart(pts: TimelinePoint[], daeun: Daeun[], scores: number[], nowYear: number, adoptYear: number, adoptLabel: string): string {
+export function timelineChart(pts: TimelinePoint[], daeun: Daeun[], scores: number[], nowYear: number, pins: { year: number; label: string }[]): string {
   const W = 720, H = 260, L = 30, R = 12, T = 28, B = 58;
   const iw = W - L - R, ih = H - T - B;
   const y0 = pts[0].year, y1 = pts[pts.length - 1].year;
@@ -53,19 +37,18 @@ export function timelineChart(pts: TimelinePoint[], daeun: Daeun[], scores: numb
     </g>`;
   }).join('');
   const grid = [25, 50, 75].map((g) => `<line x1="${L}" x2="${W - R}" y1="${y(g)}" y2="${y(g)}" class="grid"/><text x="${L - 6}" y="${y(g) + 3}" class="tick">${g}</text>`).join('');
-  const nowX = x(Math.min(y1, nowYear)), adX = x(adoptYear);
-  const adP = pts.find((p) => p.year === adoptYear);
+  const nowX = x(Math.min(y1, nowYear));
   const nowP = pts.find((p) => p.year === nowYear);
   return `<div class="scroll-x tl-wrap"><figure class="chart tl" data-y0="${y0}" data-y1="${y1}">
-  <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="나이별 운 흐름. 입양 ${adoptYear}년, 현재 ${nowYear}년">
+  <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="나이별 운 흐름. 되풀이된 해 ${pins.map((p) => p.year).join(', ')}, 현재 ${nowYear}년">
     ${bands}${grid}
     <path d="${area}" class="area"/>
     <path d="${line}" class="ln"/>
     <line x1="${nowX}" x2="${nowX}" y1="${T - 6}" y2="${T + ih}" class="nowl"/>
     <text x="${nowX}" y="${T - 10}" class="nowt">NOW ${nowYear}</text>
-    ${adP ? `<line x1="${adX}" x2="${adX}" y1="${T + 10}" y2="${T + ih}" class="adl"/>
-    <rect x="${adX - 5}" y="${y(adP.v) - 5}" width="10" height="10" class="adm"/>
-    <text x="${adX + (adX > W - 150 ? -8 : 8)}" y="${T + 20}" class="adt" text-anchor="${adX > W - 150 ? 'end' : 'start'}">${esc(adoptLabel)}</text>` : ''}
+    ${pins.map((pn, i) => { const p = pts.find((q) => q.year === pn.year); if (!p) return ''; const px = x(pn.year), right = px > W - 90; return `<line x1="${px}" x2="${px}" y1="${T + 10 + (i % 2) * 14}" y2="${T + ih}" class="adl"/>
+    <rect x="${px - 5}" y="${y(p.v) - 5}" width="10" height="10" class="adm"/>
+    <text x="${px + (right ? -6 : 6)}" y="${T + 20 + (i % 2) * 14}" class="adt" text-anchor="${right ? 'end' : 'start'}">${esc(pn.label)}</text>`; }).join('')}
     ${nowP ? `<circle cx="${nowX}" cy="${y(nowP.v)}" r="4.5" class="nowm"/>` : ''}
     <text x="${L}" y="${T + ih + 48}" class="axl">대운 간지 · 시작 나이</text>
     <g class="hover"><line class="hx" y1="${T}" y2="${T + ih}"/><circle class="hc" r="4"/></g>

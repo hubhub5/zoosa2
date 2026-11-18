@@ -1,7 +1,7 @@
-# zoosa2 — 새 컨셉 사주 사이트 (보호자사주 복사본에서 출발)
+# zoosa2 — 되풀이사주 (보호자사주 복사본에서 출발)
 
 이 폴더는 2026-11-18에 **보호자사주**(`~/Downloads/zoosa`, https://hubhub5.github.io/zoosa/, 저장소 hubhub5/zoosa)를 통째로 복사해 만든 별도 프로젝트다.
-보호자사주는 그대로 운영 중이다. 여기서는 **다른 컨셉의 사주**를 만든다. 아직 컨셉은 안 정해졌고, 지금 화면·문구는 보호자사주 그대로다.
+보호자사주는 그대로 운영 중이다. 여기서는 2026-11-18부터 **되풀이사주**(일반 대운 사주 + 생각 버릇 리딩)로 바꿨다. 강아지·픽셀 그림은 전부 뺐다.
 
 - 저장소: https://github.com/hubhub5/zoosa2 (main 에 push 하면 Actions 가 테스트 → 빌드 → GitHub Pages 배포)
 - 사이트: https://hubhub5.github.io/zoosa2/
@@ -16,24 +16,25 @@
 - 그로블·Cloudflare·GitHub 계정 설정 화면은 사용자가 직접 누른다. 비밀값(웹훅 키, 토큰)은 채팅에 붙이지 말고 클립보드 → `pbpaste` 로 넣는다.
 - 이용자에게는 사이트 주소를 준다. 그로블 결제 링크를 직접 주지 않는다 (사이트를 거쳐야 ref 가 붙어 자동으로 열린다).
 
-## 원본(보호자사주)이 하는 일
+## 되풀이사주가 하는 일
 
-보호자의 대운(10년 단위) 위에 반려견 입양일을 찍어 보는 리포트. 01–03장 무료, 04–09장 9,900원.
-01 사주 여덟 글자 · 02 10년씩 끊어 본 인생(입양일 표시) · 03 입양 계기 7갈래 · 04 강아지가 채워 준 것 · 05 생각 버릇(인지왜곡) 10가지 · 06 지금/다음 10년 · 07 강아지랑 같이 갈 10년 · 08 주고받는 것 · 09 인스타 카드.
+생년월일시만 넣으면, 대운·세운이 원국을 건드린 해 중 "같은 장면이 되풀이된 해"를 연도로 찍고, 그해 장면을 단정형으로 읽어 준다. 01–03장 무료, 04–09장 13,900원.
+01 사주 여덟 글자 · 02 10년씩 끊어 본 인생(되풀이된 해 표시) · 03 이미 몇 번 겪은 일(고리 4칸 + 되풀이된 해, 최근 해만 문장 공개 + 체크리스트) · 04 생각 버릇 10 · 05 부딪히는 자리(갈등 6 + 되풀이된 해 전부 + 다음 차례) · 06 버티는 방식(대처 6) · 07 지금/다음 10년 · 08 앞으로 10년 · 09 저장 카드.
+리딩 톤: 인지왜곡·CBT 용어는 앞세우지 않고 사주 근거로 말한다. 신점처럼 연도·계절·상대·장면을 단정형으로. 문체 기준은 `docs/voice.md` (Moist Notes 548편에서 뽑음).
 입력값은 서버로 안 가고 주소 해시(#)에 담겨 브라우저에서 계산·렌더링한다.
 
 ## 구조
 
 - 정적 사이트: Vite + TypeScript, `base: './'`. 페이지 HTML 은 루트(`index.html`, `report.html`, `sample.html`, `unlock.html`, 약관·환불·개인정보, 숨은 주소 `full-e31f9f43f85e.html`(전체 예시), `edit-b1ba3516.html`(관리자 문구 편집)). 공통 머리·꼬리는 `partials/`.
 - `src/saju/` 만세력 (lunar-javascript, 진태양시 −30분, 1954–61 표준시, 서머타임), 십성·오행·신강도·운 점수 → **새 컨셉에서도 그대로 재사용할 핵심**
-- `src/engine/` 입양 계기 점수(`adoption.ts`), 인지왜곡 점수 + 2만 명 분위표(`distortion.ts`, `norms.json`)
-- `src/content/` 문구 데이터. `overrides.json` 은 관리자 편집 페이지가 커밋하는 덮어쓰기 값
+- `src/engine/` 공통 특징·분위(`features.ts`), 생각 버릇(`distortion.ts`), 대처(`coping.ts`), 갈등(`conflict.ts`), 되풀이된 해(`repeat.ts`: 세운에서 1위 버릇이 튄 정도 + 일지·월지 충형원진 + 운 점수로 고르고, 상대(slot)는 세운 십성·일지·성별로). 분위표 `norms.json` 은 `npm run norms` 로 셋 다 다시 만든다
+- `src/content/` 문구 데이터. `events.ts`(버릇 × 상대 60문장, 체크리스트), `coping.ts`, `conflict.ts`, `distortions.ts`, `verdict.ts`(표지). `overrides.json` 은 관리자 편집 페이지가 커밋하는 덮어쓰기 값 (강아지 시절 값은 비웠음)
 - `src/report/model.ts` 입력 → 리포트 모델 (`decodeInputs` 가 해시 → 입력값), `render.ts` HTML
 - `src/unlock.ts` 잠금 해제: 해제코드(해시 비교) + 자동 결제 확인(ref/rid, 아래)
-- `pixel/` 픽셀 GIF 엔진과 견종 스프라이트, `scripts/` 문체 검사·코드 해시·분위표·OG 이미지
+- `scripts/` 문체 검사·코드 해시·분위표·OG 이미지(`npm run dev` 후 `/scripts/og.html`)
 - `worker/` 결제 확인 서버 (Cloudflare Workers + D1)
 
-명령: `npm run dev` · `npm test`(무작위 300건 렌더링 포함) · `npm run lint` · `npm run build` · `npm run pixel` · `npm run norms`. 서버 테스트도 `npm test` 에 포함.
+명령: `npm run dev` · `npm test`(무작위 300건 렌더링 포함) · `npm run lint` · `npm run build` · `npm run norms`. 서버 테스트도 `npm test` 에 포함.
 
 ## 결제 (원본에서 쓰는 방식, 여기서는 아직 꺼져 있음)
 
@@ -55,7 +56,7 @@ D1 을 쓰는 이유: KV 무료 한도가 하루 쓰기 1천이라 부족. D1 �
 
 ## 새 사이트 판매 시작할 때 할 일
 
-1. 컨셉에 맞게 문구·화면·`src/config.ts` 의 `brand`, `price`, `priceLabel` 수정. `<title>`·og 문구, `public/og.png`(`npm run dev` 후 `/scripts/og.html`), 약관·환불·개인정보 페이지도
+1. (완료 2026-11-18) 문구·화면·`src/config.ts` brand `되풀이사주`, 13,900원, og 이미지, 약관·환불·개인정보. 이름은 임시라 바꾸려면 config·html 제목·partials/top.html·scripts/og.html
 2. 그로블에서 새 상품 + **결제창** 만들기 (사용자가 직접). 이동 페이지: `https://hubhub5.github.io/zoosa2/unlock.html?paid=1`
 3. 서버: `npx -y wrangler@4.86.0 whoami` 로 로그인 확인(계정 study_4ever) → `bash worker/setup.sh` (D1 생성, 배포, SHAPES_KEY·HASH_PEPPER) → 주소는 `https://zoosa2-paid.study-4ever.workers.dev`
 4. 그로블 웹훅 등록: URL `<서버>/hook`, 이벤트 결제 완료·결제 취소 완료. 키는 사용자가 복사 → `cd worker && pbpaste | npx -y wrangler@4.86.0 secret put GROBLE_SECRET` → 클립보드 비우기
